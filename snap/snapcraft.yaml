@@ -1,0 +1,20 @@
+name: aws-shell
+base: core18
+version: 'git'
+summary: An integrated shell for working with the AWS CLI.
+description: |
+  The interactive productivity booster for the AWS CLI
+
+grade: stable
+confinement: classic
+
+parts:
+  aws-shell:
+    plugin: python
+    source: .
+
+apps:
+  aws-shell:
+    command: python3 $SNAP/bin/aws-shell
+    environment: 
+      PYTHONPATH: $PYTHONPATH:$SNAP/lib/python3.6/site-packages
